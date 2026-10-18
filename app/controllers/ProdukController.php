@@ -57,13 +57,19 @@ class ProdukController
 	private function validateInput(array $input): array
 	{
 		$data = [
+			'kode_produk' => trim($input['kode_produk'] ?? ''),
 			'nama_produk' => trim($input['nama_produk'] ?? ''),
+			'kategori' => trim($input['kategori'] ?? ''),
 			'harga' => trim($input['harga'] ?? ''),
-			'stok' => trim($input['stok'] ?? ''),
 		];
 
-		if ($data['nama_produk'] === '' || $data['harga'] === '' || $data['stok'] === '') {
-			exit('Nama produk, harga, dan stok wajib diisi.');
+		if (
+			$data['kode_produk'] === ''
+			|| $data['nama_produk'] === ''
+			|| $data['kategori'] === ''
+			|| $data['harga'] === ''
+		) {
+			exit('Kode produk, nama produk, kategori, dan harga wajib diisi.');
 		}
 
 		return $data;

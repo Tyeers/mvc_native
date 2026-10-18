@@ -9,16 +9,18 @@
 	<a href="index.php?page=produk&action=create">Tambah Data</a>
 	<table border="1" cellpadding="8" cellspacing="0">
 		<tr>
-			<th>Nama</th>
+			<th>Kode Produk</th>
+			<th>Nama Produk</th>
+			<th>Kategori</th>
 			<th>Harga</th>
-			<th>Stok</th>
 			<th>Aksi</th>
 		</tr>
 		<?php foreach ($produk as $p): ?>
 			<tr>
-				<td><?= htmlspecialchars($p['nama']) ?></td>
+				<td><?= htmlspecialchars($p['kode_produk']) ?></td>
+				<td><?= htmlspecialchars($p['nama_produk']) ?></td>
+				<td><?= htmlspecialchars($p['kategori']) ?></td>
 				<td><?= htmlspecialchars($p['harga']) ?></td>
-				<td><?= htmlspecialchars($p['stok']) ?></td>
 				<td>
 					<a href="index.php?page=produk&action=edit&id=<?= $p['id'] ?>">Edit</a>
 					<form method="post"
