@@ -15,6 +15,8 @@
 		<input type="text" name="kategori" required><br><br>
 		<label>Harga</label><br>
 		<input type="number" name="harga" required><br><br>
+		<label>Stok</label><br>
+		<input type="number" name="stok" min="0" max="2147483647" step="1" required><br><br>
 		<button type="submit">Simpan</button>
 		<a href="index.php?page=produk">Kembali</a>
 	</form>

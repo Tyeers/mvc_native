@@ -61,6 +61,7 @@ class ProdukController
 			'nama_produk' => trim($input['nama_produk'] ?? ''),
 			'kategori' => trim($input['kategori'] ?? ''),
 			'harga' => trim($input['harga'] ?? ''),
+			'stok' => trim($input['stok'] ?? ''),
 		];
 
 		if (
@@ -68,9 +69,16 @@ class ProdukController
 			|| $data['nama_produk'] === ''
 			|| $data['kategori'] === ''
 			|| $data['harga'] === ''
+			|| $data['stok'] === ''
 		) {
-			exit('Kode produk, nama produk, kategori, dan harga wajib diisi.');
+			exit('Kode produk, nama produk, kategori, harga, dan stok wajib diisi.');
 		}
+
+		$stok = filter_var($data['stok'], FILTER_VALIDATE_INT);
+		if ($stok === false || $stok < 0 || $stok > 2147483647) {
+			exit('Stok harus berupa bilangan bulat antara 0 dan 2147483647.');
+		}
+		$data['stok'] = $stok;
 
 		return $data;
 	}

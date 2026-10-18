@@ -13,6 +13,7 @@
 			<th>Nama Produk</th>
 			<th>Kategori</th>
 			<th>Harga</th>
+			<th>Stok</th>
 			<th>Aksi</th>
 		</tr>
 		<?php foreach ($produk as $p): ?>
@@ -21,6 +22,7 @@
 				<td><?= htmlspecialchars($p['nama_produk']) ?></td>
 				<td><?= htmlspecialchars($p['kategori']) ?></td>
 				<td><?= htmlspecialchars($p['harga']) ?></td>
+				<td><?= htmlspecialchars($p['stok']) ?></td>
 				<td>
 					<a href="index.php?page=produk&action=edit&id=<?= $p['id'] ?>">Edit</a>
 					<form method="post"

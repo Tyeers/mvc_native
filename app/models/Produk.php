@@ -6,7 +6,7 @@ class Produk
 	public function getAll(): array
 	{
 		$stmt = $this->db->query(
-			'SELECT id, kode_produk, nama_produk, kategori, harga FROM produk ORDER BY nama_produk'
+			'SELECT id, kode_produk, nama_produk, kategori, harga, stok FROM produk ORDER BY nama_produk'
 		);
 
 		return $stmt->fetchAll();
@@ -15,7 +15,7 @@ class Produk
 	public function findById(int $id): array|false
 	{
 		$stmt = $this->db->prepare(
-			'SELECT id, kode_produk, nama_produk, kategori, harga FROM produk WHERE id = :id'
+			'SELECT id, kode_produk, nama_produk, kategori, harga, stok FROM produk WHERE id = :id'
 		);
 		$stmt->execute([':id' => $id]);
 
@@ -24,8 +24,8 @@ class Produk
 
 	public function insert(array $data): bool
 	{
-		$sql = 'INSERT INTO produk (kode_produk, nama_produk, kategori, harga)
-			VALUES (:kode_produk, :nama_produk, :kategori, :harga)';
+		$sql = 'INSERT INTO produk (kode_produk, nama_produk, kategori, harga, stok)
+			VALUES (:kode_produk, :nama_produk, :kategori, :harga, :stok)';
 		$stmt = $this->db->prepare($sql);
 
 		return $stmt->execute([
@@ -33,6 +33,7 @@ class Produk
 			':nama_produk' => $data['nama_produk'],
 			':kategori' => $data['kategori'],
 			':harga' => $data['harga'],
+			':stok' => $data['stok'],
 		]);
 	}
 
@@ -40,7 +41,7 @@ class Produk
 	{
 		$sql = 'UPDATE produk
 			SET kode_produk = :kode_produk, nama_produk = :nama_produk,
-				kategori = :kategori, harga = :harga
+				kategori = :kategori, harga = :harga, stok = :stok
 			WHERE id = :id';
 		$stmt = $this->db->prepare($sql);
 
@@ -50,6 +51,7 @@ class Produk
 			':nama_produk' => $data['nama_produk'],
 			':kategori' => $data['kategori'],
 			':harga' => $data['harga'],
+			':stok' => $data['stok'],
 		]);
 	}
 

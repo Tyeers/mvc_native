@@ -25,6 +25,10 @@
 	 <input type="number" name="harga"
 		 value="<?= htmlspecialchars($produk['harga']) ?>" required><br><br>
 
+	 <label>Stok</label><br>
+	 <input type="number" name="stok" min="0" max="2147483647" step="1"
+		 value="<?= htmlspecialchars($produk['stok']) ?>" required><br><br>
+
 	 <button type="submit">Update</button>
 	 <a href="index.php?page=produk">Kembali</a>
     </form>
