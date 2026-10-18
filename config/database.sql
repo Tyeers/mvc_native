@@ -10,10 +10,11 @@ CREATE TABLE IF NOT EXISTS produk (
     nama_produk VARCHAR(100) NOT NULL,
     kategori VARCHAR(100) NOT NULL,
     harga INT(32) NOT NULL,
+    stok INT NOT NULL DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO produk (kode_produk, nama_produk, kategori, harga) VALUES
-('PRD001', 'Laptop', 'Elektronik', 7500000),
-('PRD002', 'Mouse Wireless', 'Aksesori Komputer', 150000),
-('PRD003', 'Keyboard Mekanik', 'Aksesori Komputer', 450000);
+INSERT IGNORE INTO produk (kode_produk, nama_produk, kategori, harga, stok) VALUES
+('PRD001', 'Laptop', 'Elektronik', 7500000, 10),
+('PRD002', 'Mouse Wireless', 'Aksesori Komputer', 150000, 25),
+('PRD003', 'Keyboard Mekanik', 'Aksesori Komputer', 450000, 15);
