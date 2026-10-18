@@ -9,7 +9,7 @@ Aplikasi CRUD sederhana untuk mengelola data produk dan stok menggunakan pola Mo
 
 ## Instalasi
 1. Clone atau salin project ke folder web server.
-2. Import `database/kampus.sql`.
+2. Import `database/database.sql`.
 3. Sesuaikan koneksi pada `config/database.php`.
 4. Buka `http://localhost/mvc_native/public/index.php`.
 
@@ -29,7 +29,9 @@ Aplikasi CRUD sederhana untuk mengelola data produk dan stok menggunakan pola Mo
 
 ## Histori Git
 git log --oneline --graph --decorate
-* 26be8f4 (HEAD -> master) feat: add stok for CRUD
+* 4d4ce23 (HEAD -> main, origin/main) fix: moved database.sql to database folder
+* fac603e docs: add installation and MVC documentation
+* 26be8f4 feat: add stok for CRUD
 * 1c7c874 feat: add stok column in produk
 * 95bcc02 fix: fix product CRUD columns to match database schema
 * cdea12a feat: add complete CRUD routing
